@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Desenhos;
+use App\Models\Tbdesenho;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 
-class DesenhosController extends Controller
+class TbdesenhoController extends Controller
 {
-    //
+    //para mostrar tela de administrativa
 
     public function MostrarHome(){
         return view('homeadm');
@@ -23,12 +22,11 @@ class DesenhosController extends Controller
         $registros = $request->validate([
             'nomeDesenho'=>'string|required',
             'dataDesenho'=>'date|required',
-            'localDesenho'=>'string|required',
-            'imgDesenho'=>'string|required'
+            'generoDesenho'=>'string|required',
+            'autorDesenho'=>'string|required'
         ]);
-    
-    Desenhos::create($registros);
-    return Redirect::route('home-adm');
-    }
 
+        Tbdesenho::create($registros);
+        return Redirect::route('home-adm');
+    }
 }

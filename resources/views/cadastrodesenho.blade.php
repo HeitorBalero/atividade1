@@ -1,8 +1,10 @@
 @extends('layout')
 @section('content')
+''
 <div class="container mt-5">
-    <h2>Formulário de Desenhos</h2>
-    <form>
+    <h2>Cadastro de Desenho</h2>
+    <form method="post" action="{{route('cadastra-desenho')}}">
+        @csrf
         <div class="form-group">
             <label for="nomeDesenho">Nome do Desenho</label>
             <input type="text" class="form-control" id="nomeDesenho" name="nomeDesenho" required>
@@ -14,13 +16,16 @@
         </div>
 
         <div class="form-group">
-            <label for="tipoDesenho">Tipo do Desenho</label>
-            <input type="text" class="form-control" id="tipoDesenho" name="tipoDesenho" required>
+            <label for="generoDesenho">Gênero do Desenho</label>
+            <input type="text" class="form-control" id="generoDesenho" name="generoDesenho" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="form-group">
+            <label for="autorDesenho">Autor do Desenho</label>
+            <input type="text" class="form-control" id="autorDesenho" name="autorDesenho" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar Desenho</button>
     </form>
 </div>
 
-
-@extension
+@endsection
